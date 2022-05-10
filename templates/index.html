@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Новая страница</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>Id</th>
+            <th>Дата</th>
+            <th>Имя</th>
+            <th>Телефон</th>
+        </tr>
+
+
+        {% for obj in object_list %}
+        <tr>
+            <th>{{ obj.id }}</th>
+            <th>{{ obj.order_dt }}</th>
+            <th>{{ obj.order_name }}</th>
+            <th>{{ obj.order_phone }}</th>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <form action="{% url 'thanks' %}" method="POST">
+        {% csrf_token %}
+        <label>Имя</label>
+        <input name="name">
+        <label>Телефон</label>
+        <input name="phone">
+        <button type="submit">ОТПРАВИТЬ</button>
+
+    </form>
+</body>
+</html>
