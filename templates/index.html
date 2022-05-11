@@ -1,43 +1,64 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Новая страница</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-</head>
-<body>
-<!--    <table border="1">-->
-<!--        <tr>-->
-<!--            <th>Id</th>-->
-<!--            <th>Дата</th>-->
-<!--            <th>Имя</th>-->
-<!--            <th>Телефон</th>-->
-<!--        </tr>-->
+{% block index %}
+    {% include 'carousel.html' %}
 
+    {% include 'price.html' %}
+  	<!-- Карточки -->
+  	<section>
+  		<div class="container">
+  			<h1 class="text-3">ПАКЕТЫ УСЛУГ</h1>
+  			<div class="row justify-content-center">
+  				<div class="card product_card" style="width: 18rem; background-color: #cd7f32;">
+				  <div class="card-body">
+				    <h5 class="card-title">BRONZE</h5>
+				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				    <h3>10 000 руб.</h3>
+				  </div>
+				</div>
+				<div class="card product_card" style="width: 18rem; background-color: #c0c0c0;">
+				  <div class="card-body">
+				    <h5 class="card-title">SILVER</h5>
+				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				    <h3>20 000 руб.</h3>
+				  </div>
+				</div>
+				<div class="card product_card" style="width: 18rem; background-color: #ffd700;">
+				  <div class="card-body">
+				    <h5 class="card-title">GOLD</h5>
+				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				    <h3>30 000 руб.</h3>
+				  </div>
+				</div>
+  			</div>	
+  		</div>
+  	</section>
 
-<!--        {% for obj in object_list %}-->
-<!--        <tr>-->
-<!--            <th>{{ obj.id }}</th>-->
-<!--            <th>{{ obj.order_dt }}</th>-->
-<!--            <th>{{ obj.order_name }}</th>-->
-<!--            <th>{{ obj.order_phone }}</th>-->
-<!--        </tr>-->
-<!--        {% endfor %}-->
-<!--    </table>-->
+  	<!-- форма -->
+  	<section>
+  		<div class="container class_form">
+  			<h1 class="text-3">Оставь заявку и получи услугу</h1>
+  			<div class="row justify-content-center">
+  			<form action="" method="" style="width: 50%;">
+			  <div class="form-group row">
+			    <label for="inputEmail3" class="col-sm-2 col-form-label">Имя</label><br>
+			      <input type="text" class="form-control" name="name">
+			    <div class="">
+			    </div>
+			  </div>
+			  <div class="form-group row">
+			    <label for="inputEmail3" class="col-sm-2 col-form-label">Телефон</label><br>
+			      <input type="text" class="form-control" name="phone">
+			    <div class="">
+			    </div>
+			  </div>
+			  <div style="float: right;" class="form-group row">
+			      <button type="submit" class="btn btn-success">ОСТАВИТЬ ЗАЯВКУ</button>
+			  </div>
+			</form>
+			</div>
+  		</div>
+  	</section>
 
-<!--    <form action="{% url 'thanks' %}" method="POST">-->
-<!--        {% csrf_token %}-->
-<!--        <label>Имя</label>-->
-<!--        <input name="name">-->
-<!--        <label>Телефон</label>-->
-<!--        <input name="phone">-->
-<!--        <button type="submit">ОТПРАВИТЬ</button>-->
-<!--    </form>-->
-        <form action="{% url 'thanks' %}" method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">ОТПРАВИТЬ</button>
-    </form>
-</body>
-</html>
+{% endblock %}
+
